@@ -5,6 +5,7 @@
 void setup() {
   Serial.begin(9600);
   initialiserComposants();
+  afficherTirets();
 }
 
 void loop()
@@ -14,6 +15,7 @@ void loop()
         afficherEtatCoffre(false);
         afficherJumelage(true);
         positionnerServo(false);
+        afficherNombre(2705);
     }
 
     if (digitalRead(BOUTON_B) == LOW)
@@ -21,5 +23,6 @@ void loop()
         afficherEtatCoffre(true);
         afficherJumelage(false);
         positionnerServo(true);
+        viderAfficheur();
     }
 }

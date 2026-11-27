@@ -10,6 +10,7 @@
 #include "composants.h"
 
 Servo servo;
+TM1637Display afficheur(CLK, DIO);
 
 void initialiserComposants()
 {
@@ -30,6 +31,10 @@ void initialiserComposants()
     // Servomoteur
     servo.attach(PIN_SERVO);
     servo.write(0);
+
+    // Afficheur TM1637
+afficheur.setBrightness(3);
+afficheur.clear();
 }
 
 void afficherEtatCoffre(bool ouvert)
@@ -53,4 +58,23 @@ void positionnerServo(bool ouvert)
     {
         servo.write(180);
     }
+}
+
+void afficherNombre(int nombre)
+{
+    afficheur.showNumberDec(nombre, true);
+}
+
+void viderAfficheur()
+{
+    afficheur.clear();
+}
+
+void afficherTirets()
+{
+    uint8_t tirets[] = {
+        SEG_G, SEG_G, SEG_G, SEG_G
+    };
+
+    afficheur.setSegments(tirets);
 }
