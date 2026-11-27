@@ -21,7 +21,7 @@
 
 // DELs
 #define DEL_VERTE 26
-#define DEL_ROUGE 27
+#define DEL_BLANCHE 27
 #define DEL_BLEUE 23
 
 // Capteurs
