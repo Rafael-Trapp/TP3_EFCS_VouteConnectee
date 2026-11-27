@@ -1,18 +1,20 @@
 #include <Arduino.h>
-
-// put function declarations here:
-int myFunction(int, int);
+#include "config.h"
+#include "composants.h"
 
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+  Serial.begin(115200);
+  initialiserComposants();
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-}
+    if (digitalRead(BOUTON_A) == LOW)
+  {
+      Serial.println("Bouton A");
+  }
 
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+  if (digitalRead(BOUTON_B) == LOW)
+  {
+      Serial.println("Bouton B");
+  }
 }
