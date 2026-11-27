@@ -3,18 +3,23 @@
 #include "composants.h"
 
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(9600);
   initialiserComposants();
 }
 
-void loop() {
+void loop()
+{
     if (digitalRead(BOUTON_A) == LOW)
-  {
-      Serial.println("Bouton A");
-  }
+    {
+        afficherEtatCoffre(false);
+        afficherJumelage(true);
+        positionnerServo(false);
+    }
 
-  if (digitalRead(BOUTON_B) == LOW)
-  {
-      Serial.println("Bouton B");
-  }
+    if (digitalRead(BOUTON_B) == LOW)
+    {
+        afficherEtatCoffre(true);
+        afficherJumelage(false);
+        positionnerServo(true);
+    }
 }

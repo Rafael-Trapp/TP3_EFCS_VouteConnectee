@@ -2,5 +2,7 @@
 #define COMPOSANTS_H
 
 void initialiserComposants();
-
+void afficherEtatCoffre(bool ouvert);
+void afficherJumelage(bool jumele);
+void positionnerServo(bool ouvert);
 #endif
