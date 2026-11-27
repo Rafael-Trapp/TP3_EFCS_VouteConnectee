@@ -11,6 +11,12 @@
 
 Servo servo;
 TM1637Display afficheur(CLK, DIO);
+Adafruit_NeoMatrix matrice(
+    8, 8, PIN_MATRICE,
+    NEO_MATRIX_TOP + NEO_MATRIX_LEFT +
+    NEO_MATRIX_ROWS + NEO_MATRIX_ZIGZAG,
+    NEO_GRB + NEO_KHZ800
+);
 
 void initialiserComposants()
 {
@@ -30,11 +36,17 @@ void initialiserComposants()
 
     // Servomoteur
     servo.attach(PIN_SERVO);
-    servo.write(0);
+    //servo.write(0);
 
     // Afficheur TM1637
 afficheur.setBrightness(3);
 afficheur.clear();
+
+// Matrice 8x8
+matrice.begin();
+matrice.setBrightness(20);
+matrice.clear();
+matrice.show();
 }
 
 void afficherEtatCoffre(bool ouvert)
@@ -77,4 +89,22 @@ void afficherTirets()
     };
 
     afficheur.setSegments(tirets);
+}
+
+void afficherMatriceRouge()
+{
+    matrice.fillScreen(matrice.Color(255, 0, 0));
+    matrice.show();
+}
+
+void afficherMatriceVerte()
+{
+    matrice.fillScreen(matrice.Color(0, 255, 0));
+    matrice.show();
+}
+
+void eteindreMatrice()
+{
+    matrice.clear();
+    matrice.show();
 }

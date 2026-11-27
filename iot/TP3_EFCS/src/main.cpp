@@ -14,15 +14,17 @@ void loop()
     {
         afficherEtatCoffre(false);
         afficherJumelage(true);
-        positionnerServo(false);
+        //positionnerServo(false);
         afficherNombre(2705);
+        afficherMatriceRouge();
     }
 
     if (digitalRead(BOUTON_B) == LOW)
     {
         afficherEtatCoffre(true);
         afficherJumelage(false);
-        positionnerServo(true);
+        //positionnerServo(true);
         viderAfficheur();
+        afficherMatriceVerte();
     }
 }

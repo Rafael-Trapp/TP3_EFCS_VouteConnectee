@@ -9,4 +9,7 @@ void positionnerServo(bool ouvert);
 void afficherNombre(int nombre);
 void viderAfficheur();
 void afficherTirets();
+void afficherMatriceRouge();
+void afficherMatriceVerte();
+void eteindreMatrice();
 #endif
